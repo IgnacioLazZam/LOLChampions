@@ -1,3 +1,4 @@
+
 package com.turing.alan.cpifp.ui
 
 import android.view.LayoutInflater
@@ -22,7 +23,7 @@ class TaskListAdapter(): ListAdapter<Champion, TaskListAdapter.TaskViewHolder>(T
             binding.champLore.text = champ.lore
 
             binding.champImage.load(champ.imageUrl) {
-                placeholder(R.drawable.loading) // Opcional: imagen de carga
+                placeholder(R.drawable.loadinggif) // Opcional: imagen de carga
             }
         }
 

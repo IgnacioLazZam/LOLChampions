@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        val recyclerView = binding.tasksList
+        val recyclerView = binding.champsList
         (recyclerView.adapter as TaskListAdapter).submitList(repository.getChampions())
     }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val recyclerView = binding.tasksList
+        val recyclerView = binding.champsList
         recyclerView.adapter = TaskListAdapter()
 
         (recyclerView.adapter as TaskListAdapter).submitList(repository.getChampions())
