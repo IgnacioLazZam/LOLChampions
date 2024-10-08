@@ -2,6 +2,14 @@ package com.turing.alan.cpifp.data
 
 class InMemoryChampionsRepository private constructor(): ChampionsRepository {
 
+
+    override fun readOne(id: Int): Champion {
+        val _champs = getChampions()
+        return _champs.single { it.id == id }
+    }
+
+
+
     // Función que devuelve la lista de campeones
     override fun getChampions(): List<Champion> {
         return listOf(

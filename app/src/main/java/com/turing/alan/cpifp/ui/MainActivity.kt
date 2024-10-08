@@ -14,13 +14,8 @@ import java.time.Instant
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val repository:ChampionsRepository = InMemoryChampionsRepository.getInstance()
+    //private val repository:ChampionsRepository = InMemoryChampionsRepository.getInstance()
 
-    override fun onResume() {
-        super.onResume()
-        val recyclerView = binding.champsList
-        (recyclerView.adapter as TaskListAdapter).submitList(repository.getChampions())
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -31,12 +26,6 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        val recyclerView = binding.champsList
-        recyclerView.adapter = TaskListAdapter()
-
-        (recyclerView.adapter as TaskListAdapter).submitList(repository.getChampions())
-
 
     }
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main.xml"
+    app:startDestination="@id/champListFragment">
+    <fragment
+        android:id="@+id/champListFragment"
+        android:name="com.turing.alan.cpifp.ui.ChampListFragment"
+        android:label="ChampListFragment" >
+        <action
+            android:id="@+id/action_champListFragment_to_champDetailFragment"
+            app:destination="@id/champDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/champDetailFragment"
+        android:name="com.turing.alan.cpifp.ui.ChampDetailFragment"
+        android:label="ChampDetailFragment" >
+        <argument
+            android:name="champId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_champDetailFragment_to_champListFragment"
+            app:destination="@id/champListFragment" />
+    </fragment>
+</navigation>

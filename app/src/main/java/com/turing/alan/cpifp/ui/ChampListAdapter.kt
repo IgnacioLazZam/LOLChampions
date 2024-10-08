@@ -13,14 +13,18 @@ import com.turing.alan.cpifp.data.Champion
 import com.turing.alan.cpifp.databinding.ActivityChampBinding
 
 
-class TaskListAdapter(): ListAdapter<Champion, TaskListAdapter.TaskViewHolder>(TaskDiffCallback) {
+class ChampListAdapter(private val toChampDetail:((Champion)->Unit)): ListAdapter<Champion, ChampListAdapter.TaskViewHolder>(TaskDiffCallback) {
 
-    class TaskViewHolder(private val binding: ActivityChampBinding) :RecyclerView.ViewHolder(binding.root) {
+    inner class TaskViewHolder(private val binding: ActivityChampBinding) :RecyclerView.ViewHolder(binding.root) {
 
         fun bind(champ:Champion) {
             binding.champTitle.text = champ.title
             binding.champName.text = champ.name
             binding.champLore.text = champ.lore
+
+            binding.root.setOnClickListener  {
+                toChampDetail(champ)
+            }
 
             binding.champImage.load(champ.imageUrl) {
                 placeholder(R.drawable.loadinggif) // Opcional: imagen de carga
